@@ -10,13 +10,11 @@ const app = express();
 app.use('/', express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send(
-    ReactDOMServer.renderToStaticMarkup(
-      <Html
-        markup={ReactDOMServer.renderToString(<App/>)}
-      />
-    )
-  );
+  ReactDOMServer.renderToNodeStream(
+    <Html>
+      <App/>
+    </Html>
+  ).pipe(res);
 });
 
 app.listen(3000, () => {

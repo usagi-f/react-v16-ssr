@@ -8,7 +8,7 @@ const Html = (props) => {
         <title>App</title>
       </head>
       <body>
-        <div id="root" dangerouslySetInnerHTML={ {__html: props.markup} }/>
+        <div id="root">{props.children}</div>
         <script type="text/javascript" src="bundle.js"/>
       </body>
     </html>
